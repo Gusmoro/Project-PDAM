@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Developer - Kelompok 8</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            /* Latar belakang Hitam Elegan */
+            background: linear-gradient(135deg, #000000, #111111, #1a1a1a);
+            background-attachment: fixed;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.5rem 2rem 1.5rem;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        /* ===== EFEK GRADASI MENGILAP/WALKING ===== */
+        .header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            letter-spacing: -0.5px;
+            
+            color: rgba(255, 255, 255, 0.1); 
+            
+            /* Gradasi Putih dan Kuning Emas */
+            background: linear-gradient(
+                to right, 
+                #ffffff 20%, 
+                #ffffff 40%, 
+                #facc15 50%, 
+                #eab308 60%, 
+                #ffffff 80% 
+            );
+            
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shineWalking 8s linear infinite;
+        }
+
+        @keyframes shineWalking {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .header p {
+            color: #a1a1aa;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #e2e8f0;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 500;
+            font-size: 0.95rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(250, 204, 21, 0.15);
+            border-color: rgba(250, 204, 21, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(250, 204, 21, 0.15);
+            color: #facc15;
+        }
+
+        /* ===== CONTAINER & HORIZONTAL CARDS ===== */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+            width: 100%;
+            max-width: 1100px; 
+        }
+
+        .profile-card {
+            background: rgba(18, 18, 18, 0.75); /* Hitam pekat transparan untuk presisi */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 2.5rem;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden; 
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(250, 204, 21, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(250, 204, 21, 0.1);
+        }
+
+        /* BAGIAN KIRI KARTU */
+        .profile-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 250px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.08); 
+            padding-right: 2rem;
+        }
+
+        .img-wrapper {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            padding: 4px;
+            /* Gradasi Kuning ke Emas */
+            background: linear-gradient(135deg, #facc15, #ca8a04);
+            margin-bottom: 1.2rem;
+            box-shadow: 0 8px 25px rgba(250, 204, 21, 0.25);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #121212; /* Border presisi dengan warna background card */
+        }
+
+        .dev-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.4rem;
+        }
+
+        .dev-role {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #facc15; /* Warna Kuning */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: rgba(250, 204, 21, 0.1);
+            padding: 6px 16px;
+            border-radius: 50px;
+            border: 1px solid rgba(250, 204, 21, 0.25);
+        }
+
+        /* BAGIAN KANAN KARTU */
+        .profile-right {
+            flex: 1;
+            display: flex;
+            align-items: center; 
+            width: 100%;
+        }
+
+        .info-list {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1.2rem; 
+        }
+
+        /* Desain Card Data Profil */
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .info-item:hover {
+            background: rgba(250, 204, 21, 0.05);
+            border-color: rgba(250, 204, 21, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .icon-box {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #facc15; /* Warna Kuning */
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-item:hover .icon-box {
+            background: linear-gradient(135deg, #facc15, #ca8a04);
+            color: #000000; /* Ikon menjadi hitam saat dihover agar kontras dengan background kuning */
+            transform: scale(1.05) rotate(5deg);
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(250, 204, 21, 0.3);
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .info-label {
+            font-size: 0.65rem;
+            color: #a1a1aa;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .info-value {
+            font-size: 0.9rem;
+            color: #ffffff;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+        }
+
+        /* ===== FOOTER INFO TIM ===== */
+        .team-info-section {
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .team-info-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%; 
+            height: 1px;
+            /* Garis pemisah gradasi kuning */
+            background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.5), transparent);
+        }
+
+        .team-info-section h3 {
+            font-family: 'Outfit', sans-serif;
+            color: #facc15;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem; 
+        }
+
+        .team-stat {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            gap: 0.4rem; 
+        }
+
+        .team-stat span {
+            font-size: 0.75rem;
+            color: #a1a1aa;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .team-stat strong {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem; 
+            color: #ffffff;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .info-list { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.2rem; }
+            .profile-card {
+                flex-direction: column; 
+                padding: 2.5rem 1.5rem;
+                gap: 2rem;
+            }
+            .profile-left { 
+                min-width: 100%; 
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding-right: 0;
+                padding-bottom: 2rem;
+            }
+            .info-list { grid-template-columns: 1fr; }
+            
+            .team-grid {
+                display: flex;
+                flex-direction: column; 
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Profil Developer</h1>
+        <p>Project Pemrograman Web dan Database</p>
+        <a href="index.php" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali ke Login</a>
+    </header>
+
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-left">
+                <div class="img-wrapper">
+                    <img src="assets/img/Aji.jpeg" alt="Dwi Gusmoro Aji" class="profile-img">
+                </div>
+                <h2 class="dev-name">Dwi Gusmoro Aji</h2>
+                <div class="dev-role">Designer</div>
+            </div>
+
+            <div class="profile-right">
+                <div class="info-list">
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-id-badge"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">NIM</span>
+                            <span class="info-value">4.31.24.4.07</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fa-solid fa-phone-flip"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Telepon</span>
+                            <span class="info-value">0856-0936-9861</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Alamat</span>
+                            <span class="info-value">Merangin, Jambi</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-school"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Sekolah</span>
+                            <span class="info-value" title="SMAN 5 Merangin">SMAN 5 Merangin</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Jurusan</span>
+                            <span class="info-value" title="Ilmu Pengetahuan Alam">Ilmu Pengetahuan Alam</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Email</span>
+                            <span class="info-value" title="dwigusmoro14@gmail.com">dwigusmoro14@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <div class="profile-left">
+                <div class="img-wrapper">
+                    <img src="assets/img/Johar.jpeg" alt="Johar Awal Khoiroti" class="profile-img">
+                </div>
+                <h2 class="dev-name">Johar Awal Khoiroti</h2>
+                <div class="dev-role">Developer</div>
+            </div>
+
+            <div class="profile-right">
+                <div class="info-list">
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-id-badge"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">NIM</span>
+                            <span class="info-value">4.31.24.4.10</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fa-solid fa-phone-flip"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Telepon</span>
+                            <span class="info-value">0856-4030-2763</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Alamat</span>
+                            <span class="info-value">Pemalang, Jawa Tengah</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-school"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Sekolah</span>
+                            <span class="info-value" title="SMKN 1 Pemalang">SMKN 1 Pemalang</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Jurusan</span>
+                            <span class="info-value" title="Teknik Komputer Jaringan">Teknik Komputer Jaringan</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                        <div class="info-text">
+                            <span class="info-label">Email</span>
+                            <span class="info-value" title="awaljohar0@gmail.com">awaljohar0@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="team-info-section">
+        <h3>Informasi Akademik</h3>
+        <div class="team-grid">
+            <div class="team-stat">
+                <span>Tim</span>
+                <strong>Kelompok 8</strong>
+            </div>
+            <div class="team-stat">
+                <span>Kelas</span>
+                <strong>TE-2E</strong>
+            </div>
+            <div class="team-stat">
+                <span>Program Studi</span>
+                <strong>Teknik Telekomunikasi</strong>
+            </div>
+            <div class="team-stat">
+                <span>Perguruan Tinggi</span>
+                <strong>Politeknik Negeri Semarang</strong>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
