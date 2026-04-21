@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function () {
     //console.log("Script air.js jalan...");
 
@@ -54,3 +55,11 @@ $(document).ready(function () {
     
     
 })
+=======
+// $(document).ready(function () {
+//     console.log("jquery done bang..");
+
+//     $("#sumary,#chart").hide ();
+
+});
+>>>>>>> 322a6312af4a7d4af5a772676bac0fe0edae7be3
